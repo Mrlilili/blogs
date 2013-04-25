@@ -1,4 +1,4 @@
-1. [在客户端高亮搜索关键字](./2013-04-24-Highlight-Keywords-in-Client.md)
+1. [在客户端高亮关键字](./2013-04-24-Highlight-Keywords-in-Client.md)
 1. [使用drawImage和putImageData缓存Canvas中间数据](./2013-04-22-Canvas-drawImage-vs-putImageData.md)
 1. [【正则表达式】使用逗号将数字三位三位地分开](./2013-04-15-Grouping-Numbers-with-Comma.md)
 1. [使用别样的鼠标样式](./2012-04-12-Using-an-Especial-Cursor.md)  

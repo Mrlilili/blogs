@@ -5,7 +5,7 @@ CSS3 Transition过渡属性探索
 
 ###解决问题
 
-这里首先要说明Opera的一个问题，Opera从9.8版本以后就定格为9.8，如果要查看其真正版本，只有通过其UserAgent中‘Version 12.11’类似的文本来确定。在[Oprea的怪异识别码](http://blog.imbolo.com/oprea-version/)说明了这一问题的由来。
+这里首先要说明Opera的一个问题，Opera从9.8版本以后就定格为9.8，如果要查看其真正版本，只有通过其UserAgent中‘Version/12.11’类似的文本来确定。在[Oprea的怪异识别码](http://blog.imbolo.com/oprea-version/)说明了这一问题的由来。
 
 >Opera 的工程师在测试中发现，Opera 10 Alpha 在很多老网站上的运作很不正常。原来，有很多网站使用了“浏览器嗅探”技术，也就是说网站会针对不同的浏览器提供不同的内容或功能。然而不幸的是，这些网站无法识别两位数的浏览器版本号，于是 Opera 就成了首当其冲的受害者——它们把 Opera 10.0 误认为是 Opera 1.0，并因此向 Opera 10 提供不完整的功能，甚至有些网站干脆拒绝 Opera 10 的访问。
 这当然是 Opera 不愿意看到的。于是，Opera 的工程师们决定，将用户代理信息中的版本号定格在 9.8，并另外启用 Version 字段来标识真正的版本号。当然他们也考虑过选用 9.99 这个最接近 10 的可用作版本号的数字，不过出于预留空间的考虑，最终还是决定采用 9.8 作为象征性的版本号——它正好介于（Opera 9 的最后一个版本号）9.6 与 10 之间。
@@ -46,4 +46,4 @@ transition-duration和transition-delay支持如`1s`，`200ms`的值。
 ###总结
 1. CSS3 Transition可以在设置CSS属性时使其效果平滑过渡，但是过渡过程中，通过`elem.style.attr`获取其相应属性值时，得到的都是其最终值，这点和jQuery实现的动画效果不同。  
 1. 如果属性值为显式声明时，各个浏览器处理方式不同。以width为例，这时通过`elem.style.width`得到一个空字符串。Chrome26中，width会从0过渡到XX px，而在Opera12以及Firefox20中width直接变成XX px，并且不会触发transitionend事件。  
-1. Opera在9.8版本以后就将版本定格为9.8，在以后的Opera版本中只能通过其UserAgent中的'Version 12.11'之类的字符串来确定其版本号。
+1. Opera在9.8版本以后就将版本定格为9.8，在以后的Opera版本中只能通过其UserAgent中的'Version/12.11'之类的字符串来确定其版本号。

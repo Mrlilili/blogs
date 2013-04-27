@@ -35,10 +35,10 @@ $list.css('top', top);
 ###使用方法
 >transition ： [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'> [, [<'transition-property'> || <'transition-duration'> || <'transition-timing-function'> || <'transition-delay'>]]*
 或者
->transition-property ： none | all | [ <IDENT> ] [ ',' <IDENT> ]*；
->transition-duration ： <time> [, <time>]*
-transition-timing-function ： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)]*
->transition-delay ： <time> [, <time>]*
+>transition-property ： none | all | [ <IDENT> ] [ ',' <IDENT> ]*；  
+>transition-duration ： <time> [, <time>]*  
+transition-timing-function ： ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>) [, ease | linear | ease-in | ease-out | ease-in-out | cubic-bezier(<number>, <number>, <number>, <number>)]*  
+>transition-delay ： <time> [, <time>]*  
 
 transition-property支持的属性参见[W3C标准](http://www.w3.org/TR/css3-transitions/#transition-property)。  
 transition-duration和transition-delay支持如`1s`，`200ms`的值。
@@ -46,4 +46,5 @@ transition-duration和transition-delay支持如`1s`，`200ms`的值。
 ###总结
 1. CSS3 Transition可以在设置CSS属性时使其效果平滑过渡，但是过渡过程中，通过`elem.style.attr`获取其相应属性值时，得到的都是其最终值，这点和jQuery实现的动画效果不同。  
 1. 如果属性值为显式声明时，各个浏览器处理方式不同。以width为例，这时通过`elem.style.width`得到一个空字符串。Chrome26中，width会从0过渡到XX px，而在Opera12以及Firefox20中width直接变成XX px，并且不会触发transitionend事件。  
-1. Opera在9.8版本以后就将版本定格为9.8，在以后的Opera版本中只能通过其UserAgent中的'Version/12.11'之类的字符串来确定其版本号。
+1. Opera在9.8版本以后就将版本定格为9.8，在以后的Opera版本中只能通过其UserAgent中的'Version/12.11'之类的字符串来确定其版本号。  
+1. 如果设置的属性值跟设置前一样，那么并不会触发transitionend。这点需要特别注意。

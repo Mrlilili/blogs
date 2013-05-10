@@ -1,3 +1,4 @@
+1. [[翻译]Webkit图片擦拭效果](./2013-05-10-Webkit-Image-Wipes.md)
 1. [CSS3 Transition过渡属性探索](./2013-04-27-CSS3-Transition-Research.md)
 1. [在客户端高亮关键字](./2013-04-24-Highlight-Keywords-in-Client.md)
 1. [使用drawImage和putImageData缓存Canvas中间数据](./2013-04-22-Canvas-drawImage-vs-putImageData.md)

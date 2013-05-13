@@ -1,0 +1,83 @@
+
+1. ####什么是闭包？举个例子？
+闭包是指一个函数可以访问其生成时各级（非顶级）作用域中局部变量的能力。  
+```js
+var lis = document.querySelector('#list li');
+for(var i = 0; i < li.length; i++){
+  li.addEventListener('click', (function(index){
+    return function(){
+      console.log(lis[index].getAttribute('name'));
+    };
+  })(i), false);
+}
+```
+在以上例子中，点击每个li时就会打印出该li的name属性。绑定在click事件上的匿名函数可以访问局部变量index，就是利用了闭包原理。
+
+1. ####请解释一下JavaScript的同源策略。
+同源是指相同的域名以及相同的端口。最早用来阻止一个源下面的js去获取或者修改另一个源下面的文档属性。后来也被用于AJAX请求，是指一个源只能同一个源的服务器发起AJAX请求。    
+
+1. ####请解释JSONP的工作原理，以及它为什么不是真正的AJAX。
+（1）客户端生成一个全局函数，比如jsonp_callback。  
+（2）创建一个script标签访问某个资源，并加上参数?jsonp=jsonp_callback.  
+（3）服务器返回资源数据，格式为jsonp_callback(资源数据)。  
+（4）浏览器解析服务器返回数据，即调用jsonp_callback函数，参数为资源数据。  
+JSONP并不使用XMLHttpRequest对象加载资源，而是通过script标签把资源当做普通的javascript脚本来加载，所以不存在跨域问题，也不是真正的JavascriptAJAX。
+
+1. ####你如何获取浏览器URL中查询字符串中的参数。
+```javascript
+// Using RegExp  
+function getQueryParam( key ){
+    var search = window.location.search;
+    if( !key || !search ) return;
+    key = key.replace(/\./g, '\\.');
+    var match = search.match(new RegExp('[?&]' + key + '=([^&]*)'));
+    if( match ) return match[1];
+}
+```
+```javascript
+// Using String.split
+function getQueryParam( key ){
+    var search = window.location.search;
+    if( !key || !search ) return;
+    var array = search.substr(1).split(/[\?&=]/);
+    var index = array.indexOf(key);
+    if(index !== -1 && index%2===0) return array[index+1];
+}
+getQueryParam('order')
+```
+
+1. ####请解释一下事件代理。
+将事件绑定目标元素的父元素上。在父元素的相应事件中判断event.target或其各级父元素是不是目标元素（一般通过css选择器判断），如果是，则在执行相应函数。  
+事件代理的基础是事件冒泡机制。对于部分不支持冒泡的事件时无法使用事件带来的。  
+使用场景：在绑定事件时，相应元素还没有生成，或者这类元素经常被替换掉，再或者元素个数太多，如果每个都分别绑定，太麻烦并且浪费内存。  
+
+1. ####描述一种JavaScript memoization(避免重复运算)的策略。
+```javascript
+// https://github.com/lichangwei/client-utils/blob/master/memorize.js
+/*
+  JavaScript Momorization
+  @param {string} func name of function / method
+  @param {object} [obj] mothed's object or scope correction object
+  @param {function} serialize method for arguments to get the hash value.
+ */
+function memorize(func, thisobj, serialize){
+  var cache = {};
+  thisobj = thisobj || null;
+  serialize = serialize || function(){
+    return Array.prototype.join.call(arguments, '_');
+  };
+  return function(){
+    var hash = serialize.apply(null, arguments);
+    if(!cache[hash]){
+      cache[hash] = func.apply(thisobj, arguments);
+    }
+    return cache[hash];
+  };
+}
+```
+
+
+
+
+
+

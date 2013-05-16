@@ -28,24 +28,28 @@
 >> 吐槽：我可能一辈子也不会写出这种代码，也希望面试官不要因为这种题目来拒绝候选人。
 
 1. ####描述css reset的作用和用途。
+>> 浏览器都会有默认样式表，这样保证了页面中即便不写任何样式，浏览器仍然能够清晰地展示出页面内容，并突出重点。  
 
 1. ####描述下float和它的工作原理。
->> float最初应用于图文混排，让文字环绕图片。
->> 语法为float: left/right/none;
+>> float最初应用于图文混排，让文字环绕图片。  
+>> 语法为float: left/right/none;  
 >> float box脱离当前文档流，定位到父元素或者另一个float box的边缘。父元素水平方向空间不足时，向下移动知道可以放下。文档流中inline box环绕float box，block box会和float box重叠，除非使用clear: both/left/right来清除浮动。float box会形成一个新的block formatting context（BFC块状格式化上下文）。float box不会超出所在BFC，也不会和其他BFC重叠。
 
 1. ####清除浮动的方法有那些，分别适用于什么情形。
->> clear: both/left/right
->> 
->> 
+>> clear: both/left/right  
+>> 用于清除相应元素之前的兄弟节点浮动的影响。left和right指浮动方向，both包含left和right两个方向。
 
 1. ####解释css sprites，如何使用。
->> 将数张小的背景图片拼合成一张大的图片，然后在CSS中结合background-image，background-position，width和height等属性显示某张小的背景图片。
->> 网上有不少小工具可以让你上传一些小图片，然后生成一个大图并生成相应的样式表。即可直接使用。
->> 优点：减少了图片的请求数量。
->> 缺点：（1）不适合需要repeat的背景图片。（2）需要额外的工作来拼合成大图。（3）CSS和图片缓存失效的概率和影响更大。
-
+>> 将数张小的背景图片拼合成一张大的图片，然后在CSS中结合background-image，background-position，width和height等属性显示某张小的背景图片。  
+>> 网上有不少小工具可以让你上传一些小图片，然后生成一个大图并生成相应的样式表。即可直接使用。  
+>> 优点：减少了图片的请求数量。  
+>> 缺点：（1）不适合需要repeat的背景图片。（2）需要额外的工作来拼合成大图。（3）CSS和图片缓存失效的概率和影响更大。  
 1. ####你最喜欢的图片替换方法是什么，你如何选择使用。
->> CSS3, SVG, Canvas
+>> Web-Font, CSS3, SVG, Canvas  
+>> 关于如何选择，首先查看所要兼容的浏览器是否兼容其特性。在三者均支持的很好的情况下，选择优先级从高到低分别是Web-Font, CSS3, SVG, Canvas  
+>> Web-Font适合单色图片，并且可以通过font属性来设置其大小，颜色等，特别适合用于响应式设计中。
+>> CSS3基本可以说是从SVG发展而来的，功能应该还不如SVG，但是其足够简单，所以选择优先级是比较高的。
+>> SVG适合需要响应用户行为，比如mousemove等操作的图片。  
+>> Canvas适合显示动态生成的图表，不需要响应用户行为。  
 
 1. ####讨论CSS hacks，条件引用或者其他。 

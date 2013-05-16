@@ -11,7 +11,7 @@ for(var i = 0; i < li.length; i++){
   })(i), false);
 }
 ```
-在以上例子中，点击每个li时就会打印出该li的name属性。绑定在click事件上的匿名函数可以访问局部变量index，就是利用了闭包原理。
+>> 在以上例子中，点击每个li时就会打印出该li的name属性。绑定在click事件上的匿名函数可以访问局部变量index，就是利用了闭包原理。
 
 1. ####请解释一下JavaScript的同源策略。
 >> 同源是指相同的域名以及相同的端口。
@@ -22,8 +22,17 @@ for(var i = 0; i < li.length; i++){
 >> 传统的Web应用允许用户向服务器提交Form表单，服务器处理之后返回一个新的页面。这种做法既浪费带宽，因为前后两个页面很多相同之处，也增加了响应时间，增加了白屏时间，降低了用户体验。后来的iframe技术可以局部刷新页面，当时仍然没有根本改变以上状况，此时AJAX技术应运而生。
 >> AJAX全称是Asynchronous Javascript and XML，异步的Javascript和XML技术。AJAX技术允许应用只向服务器请求必须的数据，并使用Javascript处理和渲染。节省带宽，提高了响应时间，基本不会白屏，提高了用户体验。
 >> 其缺点也很明显，（1）破坏了浏览器的后退功能，最常用的解决办法是使用URL片段标识符（锚点，URL中#后面的部分）来保持跟踪，允许用户回到指定的某个应用程序状态。或者现代浏览器都基本支持的HTML5中
->> (1) 
->> (2) 
+```javascript
+// https://github.com/lichangwei/client-utils/blob/master/ajax.js
+var xhr = new XMLHttpRequest();
+xhr.open('get', '/url');
+xhr.onreadystatechange = function(){
+  if(xhr.state === 4){
+    console.log(xhr.responseText);
+  }
+};
+xhr.send(null);
+```
 
 1. ####请解释JSONP的工作原理，以及它为什么不是真正的AJAX。
 >>（1）客户端生成一个全局函数，比如jsonp_callback。  
@@ -85,7 +94,15 @@ function memorize(func, thisobj, serialize){
 }
 ```
 1. ####什么是"use strict"？使用它的好处和坏处分别是什么？
-
+>> 在严格模式下，以下使用方法收到影响。  
+>> （1）去除with关键字。  
+>> （2）非顶级作用域中，不使用var声明变量就会报错，防止误升级为全局变量。  
+>> （3）对于只读属性的修改报错，而不是静默失败。  
+>> （4）函数形参重名或者对象定义属性重名报错。  
+>> （5）函数中this不再默认指向全局对象window。  
+>> （6）更加安全的eval。eval中声明的变量和函数都不会影响当前作用域。  
+>> （7）arguments.callee和arguments.caller都不在可以使用。  
+>> 从上面列举的严格模式下的部分特性可以看出，严格模式减少出错的机会，但是也限制Javascrip语言的灵活性。  
 
 
 

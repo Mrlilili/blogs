@@ -1,7 +1,8 @@
 1. ####平常你通过什么途径接触和学习前端知识？
 >> 邮件订阅：Javascript Weekly, HTML5 Weekly, CSS Weekly, Web Design Weekly, Responsive Design Weekly.  
->> GitHub
->> 
+>> GitHub  
+>> RSS  
+>> 微博  
 
 1. ####你更喜欢在哪个浏览器下进行开发？你使用那些开发人员工具？
 >> 浏览器：最喜欢Chrome，其次是Firefox + firebug。
@@ -12,9 +13,8 @@
 >> WebGL
 
 1. ####你都使用那些工作来测试代码的性能？
-    * 例如JSPerf (http://jsperf.com/)
-    * 例如Dromaeo (http://dromaeo.com/) 
-    * 其它。
+>> 通过console.time() && console.timeEnd()测量执行1000次待测代码所需时间。  
+>> JSPerf (http://jsperf.com/)  
 
 1. ####你有什么业余项目吗？是那种类型的？  
 >>[gesture](https://github.com/lichangwei/gesture) 

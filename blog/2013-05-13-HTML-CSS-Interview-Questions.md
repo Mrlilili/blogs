@@ -49,7 +49,13 @@
 >> 关于如何选择，首先查看所要兼容的浏览器是否兼容其特性。在三者均支持的很好的情况下，选择优先级从高到低分别是Web-Font, CSS3, SVG, Canvas  
 >> Web-Font适合单色图片，并且可以通过font属性来设置其大小，颜色等，特别适合用于响应式设计中。
 >> CSS3基本可以说是从SVG发展而来的，功能应该还不如SVG，但是其足够简单，所以选择优先级是比较高的。
->> SVG适合需要响应用户行为，比如mousemove等操作的图片。  
+>> SVG适合需要响应用户行为，比如mousemove等操作的图片，作为矢量图，适合用于响应式设计中。  
 >> Canvas适合显示动态生成的图表，不需要响应用户行为。  
 
 1. ####讨论CSS hacks，条件引用或者其他。 
+
+1. ####解释BFC（block formatting context，块状布局上下文）
+>> 把一组块级box和浮动元素放在一起布局的区域。  
+>> 特点：（1）不折叠边距（margin collapsing），在同一个BFC是折叠边距的其中一个必要条件。（2）浮动元素不会超出它的范围。（3）不会跟其他浮动元素重叠。  
+>> 形成新的BFC的条件：（1）float属性不为none（2）overflow属性不为visible（3）display属性是table-cell、table-caption或inline-block（4）position属性不为static或relative。
+>> IE6/7没有BFC概念，但是它们有hasLayout与之相似，可以通过zoom: 1触发。

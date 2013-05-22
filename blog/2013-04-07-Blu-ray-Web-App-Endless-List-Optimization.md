@@ -18,7 +18,7 @@
 **方案三**：使用原生的DOM操作方法`document.createDocumentFragment()`创建一个文档片段，批量添加记录。  
 现象三：桌面浏览器没有问题，但在性能较好的蓝光机中出现闪烁的概率为 **~1%**，在较差的蓝光机中概率为 **~15%**  
   
-分析四：仍然使用了`$container.find(':lt(18)').remove()`去掉前面18条记录，这里`remove`方法可以导致$container这部分内容18次的重排重绘。 这是因为并没有找到和`document.createDocumentFragment()`相似的可以批量删除DOM节点的方法。 在桌面浏览器，移动浏览器常用的方法，比如首先将$container从DOM树中删除，执行一系列的删除操作之后再添加到DOM树中，都会导致更频繁的闪烁现象。  
+分析四：仍然使用了`$container.find(':lt(18)').remove()`去掉前面18条记录，这里`remove`方法可以导致$container这部分内容18次的重排重绘。 这是因为并没有找到和`document.createDocumentFragment`相似的可以批量删除DOM节点的方法。 在桌面浏览器，移动浏览器常用的方法，比如首先将$container从DOM树中删除，执行一系列的删除操作之后再添加到DOM树中，都会导致更频繁的闪烁现象。  
 在即将放弃该项优化的时候，突然冒出了一个从来没有使用过的方法。既不清楚能够解决该问题，也不知道如何使用该方法。  
 **方案四**：使用`document.createRange`批量删除元素。  
 ``` js
@@ -32,3 +32,11 @@ function removeChildren(parent, start, end){
 }
 ```  
 现象四：桌面浏览器以及所有的蓝光机中均没有闪烁现象。  
+
+最后又发现`elem.insertAdjacentHTML`的执行效率在蓝光机上优于`document.createDocumentFragment`，基本上前者耗时是后者的**50%**，但是不解的是在Chrome26/Windows7上前者耗时略高于后者。由于目标设备是蓝光机，所以这次优化成功，可以使用`elem.insertAdjacentHTML`。  
+`elem.insertAdjacentHTML`第一个参数是字符串，表示插入位置，共有四个可选值，如下表说明（来源：Javascript权威指南，P379）。第二参数也是字符串，表示要插入的HTML字符串。
+```html
+    <div id="target">This is the element content</div>
+   ↑                ↑                           ↑     ↑
+beforebegin     afterbegin              beforeend   afterend
+```

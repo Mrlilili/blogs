@@ -33,7 +33,7 @@ function removeChildren(parent, start, end){
 ```  
 现象四：桌面浏览器以及所有的蓝光机中均没有闪烁现象。  
 
-最后又发现`elem.insertAdjacentHTML`的执行效率在蓝光机上优于`document.createDocumentFragment`，基本上前者耗时是后者的**50%**，但是不解的是在Chrome26/Windows7上前者耗时略高于后者。由于目标设备是蓝光机，所以这次优化成功，可以使用`elem.insertAdjacentHTML`。  
+最后又发现`elem.insertAdjacentHTML`的执行效率在蓝光机上优于`document.createDocumentFragment`，基本上前者耗时是后者的 **50%**，但是不解的是在Chrome26/Windows7上前者耗时略高于后者。由于目标设备是蓝光机，所以这次优化成功，可以使用`elem.insertAdjacentHTML`。  
 `elem.insertAdjacentHTML`第一个参数是字符串，表示插入位置，共有四个可选值，如下表说明（来源：Javascript权威指南，P379）。第二参数也是字符串，表示要插入的HTML字符串。
 ```html
     <div id="target">This is the element content</div>

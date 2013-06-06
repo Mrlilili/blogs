@@ -59,7 +59,7 @@ function(event) {
 ```
 这样通过`onXxx=""`属性绑定事件处理程序的方法是每一个热爱代码热爱前端的人所不能忍受的。  
 
-后来持续地在网上寻找更好的解决方案，终于老天开眼，找到下面这篇文章[Error events don’t bubble from images and how to work around that](http://m.cg/post/30934181934/error-events-dont-bubble-from-images-and-how-to-work)，文章中指出在W3C的DOM Level 2规范中指定[error事件应该冒泡](http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-htmlevents)，但是只有Opera实现了这点。应该是由于其他的浏览器的反对，最后在DOM Level 3规范中[取消的error事件的冒泡](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-error)。作者还指出一中解决办法就是：使用捕获的监听器。
+后来持续地在网上寻找更好的解决方案，终于老天开眼，找到下面这篇文章[Error events don’t bubble from images and how to work around that](http://m.cg/post/30934181934/error-events-dont-bubble-from-images-and-how-to-work)，文章中指出在W3C的DOM Level 2规范中指定[error事件应该冒泡](http://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-eventgroupings-htmlevents)，但是只有Opera实现了这点。应该是由于其他的浏览器的反对，最后在DOM Level 3规范中[取消的error事件的冒泡](http://www.w3.org/TR/DOM-Level-3-Events/#event-type-error)。作者还指出一种解决办法就是：使用body元素的捕获处理程序。
 ```js
 document.body.addEventListener('error', handleResourceError, true);
 ```

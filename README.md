@@ -1,4 +1,5 @@
-1. [在DOM操作中，如何减少reflow或repaint](./2013-05-25-Reduce-reflow-repaint.md)
+1. [通过body的error事件捕获页面中所有图片的error事件](./blog/2013-06-06-Events-in-Capture-Phase.md)
+1. [在DOM操作中，如何减少reflow或repaint](./blog/2013-05-25-Reduce-reflow-repaint.md)
 1. [[翻译]使用SVG](./blog/2013-05-18-Using SVG.md)
 1. [常见前端面试jQuery问题](./blog/2013-05-17-jQuery-Interview-Questions.md)
 1. [常见前端面试非技术问题](./blog/2013-05-13-Unskilled-Interview-Questions.md)

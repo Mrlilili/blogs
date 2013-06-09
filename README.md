@@ -1,3 +1,4 @@
+1. [Youtube开放API中返回数据不一致](./blog/2013-06-09-TotalResults-filed-in-Youtube-Open-API.md)
 1. [强迫注册和注册强迫症](./blog/2013-06-07-essay.md)
 1. [通过body的error事件捕获页面中所有图片的error事件](./blog/2013-06-06-Events-in-Capture-Phase.md)
 1. [在DOM操作中，如何减少reflow或repaint](./blog/2013-05-25-Reduce-reflow-repaint.md)

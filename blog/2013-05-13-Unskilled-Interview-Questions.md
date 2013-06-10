@@ -15,6 +15,7 @@
 1. ####你都使用那些工作来测试代码的性能？
 >> 通过console.time() && console.timeEnd()测量执行1000次待测代码所需时间。  
 >> JSPerf (http://jsperf.com/)  
+>> Benchmark.js  
 
 1. ####你有什么业余项目吗？是那种类型的？  
 >>[gesture](https://github.com/lichangwei/gesture) 

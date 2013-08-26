@@ -21,7 +21,7 @@ for(var i = 0; i < li.length; i++){
 1. ####请解释AJAX的工作原理，以及其优缺点。
 >> 传统的Web应用允许用户向服务器提交Form表单，服务器处理之后返回一个新的页面。这种做法既浪费带宽，因为前后两个页面很多相同之处，也增加了响应时间，增加了白屏时间，降低了用户体验。后来的iframe技术可以局部刷新页面，当时仍然没有根本改变以上状况，此时AJAX技术应运而生。
 >> AJAX全称是Asynchronous Javascript and XML，异步的Javascript和XML技术。AJAX技术允许应用只向服务器请求必须的数据，并使用Javascript处理和渲染。节省带宽，提高了响应时间，基本不会白屏，提高了用户体验。
->> 其缺点也很明显，（1）破坏了浏览器的后退功能，最常用的解决办法是使用URL片段标识符（锚点，URL中#后面的部分）来保持跟踪，允许用户回到指定的某个应用程序状态。或者现代浏览器都基本支持的HTML5中
+>> 其缺点也很明显，（1）破坏了浏览器的后退功能，最常用的解决办法是使用URL片段标识符（锚点，URL中#后面的部分）来保持跟踪，允许用户回到指定的某个应用程序状态。或者使用现代浏览器都基本支持的HTML5规范中的History API。
 ```javascript
 // https://github.com/lichangwei/client-utils/blob/master/ajax.js
 var xhr = new XMLHttpRequest();

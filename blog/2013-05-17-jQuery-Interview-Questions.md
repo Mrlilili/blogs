@@ -1,7 +1,6 @@
 
 1. ####解释什么是Deferred，以及优点是什么。
-Deferred，意为延迟执行，是jQuery的回调函数解决方案，对所有的异步操作提供统一和更加方便的编程接口。使用Deferred实现的$.ajax有以下几种有点。  
-（1）链式调用（2）指定多个回调（3）为多个操作指定回调  
+Deferred，意为延迟执行，是jQuery的回调函数解决方案，对所有的异步操作提供统一和更加方便的编程接口。使用Deferred实现的$.ajax有以下几种有点。（1）链式调用（2）指定多个回调（3）为多个操作指定回调  
 ```javascript
 $.ajax('test.html')
   .done(function(){console.log('Done.')})

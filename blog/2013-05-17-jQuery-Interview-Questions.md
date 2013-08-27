@@ -6,7 +6,6 @@ $.ajax('test.html')
   .done(function(){console.log('Done.')})
   .fail(function(){console.log('Fail.')})
   .done(function(){console.log('OK.'));
-
 $.when($.ajax('test1.html'), $.ajax('test2.html'))
   .done(function(){console.log('Done.')})
   .fail(function(){console.log('Fail.')});

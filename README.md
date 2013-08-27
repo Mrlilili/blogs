@@ -1,3 +1,4 @@
+1. [[Chrome Extension]如何获取Extension的版本号](./blog/2013-08-26-Get-Version-Info-in-Chrome-Extension.md)
 1. [没有后端的应用](./blog/2013-06-30-No-Backend.md)
 1. [一些有意思的交互设计](./blog/2013-06-22-Some-Interesting-Interactive.md)
 1. [Javascript的坑](./blog/2013-06-20-Javascript-Trick.md)

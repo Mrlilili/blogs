@@ -23,6 +23,6 @@ Benchmark.js
         支持移动终端和桌面浏览器的事件库，包括tap，taphold，doubletap，flick，zoomin，zoomout，scroll等。  
 [domtemp](https://github.com/lichangwei/domtemp) 
         基于DOM的模板引擎  
-[restjs](https://github.com/lichangwei/restjs)  
+[restjs](https://github.com/lichangwei/restjs)
         类似node中express框架
      

@@ -55,11 +55,11 @@ function getQueryParam( key ){
 ```javascript
 // Using String.split
 function getQueryParam( key ){
-    var search = window.location.search;
-    if( !key || !search ) return;
-    var array = search.substr(1).split(/[\?&=]/);
-    var index = array.indexOf(key);
-    if(index !== -1 && index%2===0) return array[index+1];
+  var search = window.location.search;
+  if( !key || !search ) return;
+  var array = search.substr(1).split(/[\?&=]/);
+  var index = array.indexOf(key);
+  if(index !== -1 && index%2===0) return array[index+1];
 }
 getQueryParam('order')
 ```

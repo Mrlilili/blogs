@@ -49,7 +49,9 @@ function getQueryParam( key ){
     if( !key || !search ) return;
     key = key.replace(/\./g, '\\.');
     var match = search.match(new RegExp('[?&]' + key + '=([^&]*)'));
-    if( match ) return match[1];
+    if(match){
+      return decodeURIComponent(match[1]);
+    }
 }
 ```
 ```javascript
@@ -59,7 +61,9 @@ function getQueryParam( key ){
   if( !key || !search ) return;
   var array = search.substr(1).split(/[\?&=]/);
   var index = array.indexOf(key);
-  if(index !== -1 && index%2===0) return array[index+1];
+  if(index !== -1 && index%2===0){
+    return decodeURIComponent(array[index+1]);
+  }
 }
 getQueryParam('order')
 ```
@@ -104,10 +108,8 @@ function memorize(func, thisobj, serialize){
 （7）arguments.callee和arguments.caller都不在可以使用。  
 从上面列举的严格模式下的部分特性可以看出，严格模式减少出错的机会，但是也限制Javascrip语言的灵活性。  
 
-1. ###解释内存泄露并说明什么时候会出现内存泄露。
-内存泄露是指一块内存不会被释放，也不会被使用，直到浏览器进程结束。浏览器中采用垃圾自动回收机制，但是由于其实现的问题，可能会造成内存泄露。  
-造成内存泄露，有以下几种情况。  
-（1）对象循环引用。
+1. ####解释内存泄露并说明什么时候会出现内存泄露。
+内存泄露是指一块内存不会被释放，也不会被使用，直到浏览器进程结束。浏览器中采用垃圾自动回收机制，但是由于其实现的问题，可能会造成内存泄露。造成内存泄露大多是对象循环引用：
 ```javascript
 function bindClickEvent(){
   var elem = document.getElementById('id');
@@ -117,12 +119,3 @@ function bindClickEvent(){
 }
 ```
 以上函数的每次执行都会造成匿名函数和elem的循环引用。elem显式引用匿名函数，匿名函数通过作用域链隐式引用elem元素。可以通过两种方法解决该问题，一是将elem设置为null，二是将匿名函数置于bindClickEvent函数外面。两者都通过取消匿名函数对elem的隐式引用来解决该问题。
-（2）IE中，向不在DOM树中的DOM元素appendChild，可能发生内存泄露。
-（3）值类型自动装箱转换，解决办法是手动装箱。
-```js
-var str = 'string';
-alert(str.length);
-// alert( new String(str).length );
-```
-[参考](http://www.cnblogs.com/winter-cn/archive/2008/06/26/1213151.html)  
-

@@ -1,5 +1,6 @@
 1. [[Chrome Extension]如何获取Extension的版本号](./blog/2013-08-26-Get-Version-Info-in-Chrome-Extension.md)
 1. [没有后端的应用](./blog/2013-06-30-No-Backend.md)
+1. [[翻译]优秀的用户界面设计](./blog/2013-06-28-Good-UI.md)
 1. [一些有意思的交互设计](./blog/2013-06-22-Some-Interesting-Interactive.md)
 1. [Javascript的坑](./blog/2013-06-20-Javascript-Trick.md)
 1. [Youtube开放API中返回数据不一致](./blog/2013-06-09-TotalResults-filed-in-Youtube-Open-API.md)

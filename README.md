@@ -1,3 +1,5 @@
+1. [使用页面跳转完成登录和认证](./blog/2013-09-06-Using-Redirect-to-Login-and-Authentication.md)
+1. [使用WWW-Authenticate实现登录认证](./blog/2013-09-06-Using-WWW-Authenticate-to-Login-Authentication.md)
 1. [[Chrome Extension]如何获取Extension的版本号](./blog/2013-08-26-Get-Version-Info-in-Chrome-Extension.md)
 1. [没有后端的应用](./blog/2013-06-30-No-Backend.md)
 1. [[翻译]优秀的用户界面设计](./blog/2013-06-28-Good-UI.md)

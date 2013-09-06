@@ -12,23 +12,22 @@ app_name 该应用的名称，显示给用户确认。
 app_url 该应用的网址，显示给用户确认。  
 return_url 认证完成之后，通过该网址跳回本应用。  
 auth_level 认证等级，将会体现到该应用对电视机操控权限上。  
-
+  
 2. 电视机接收到认证页面请求，创建PIN码并显示在电视机上（如下图），返回该页面源码。  
 ![电视机上显示PIN码](../images/Redirect-1.png)  
 ```
 HTTP/1.1 200 OK
-
 <!DOCTYPE HTML>
 ```  
-
+  
 3. 浏览器端显示该页面（如下图），用户输入PIN码并发送认证请求。  
 ![浏览器上显示认证页面](../images/Redirect-2.png)  
 ```
 POST http://192.168.1.199:7999/webauth/auth_default_submit HTTP/1.1
 Content-Type: application/x-www-form-urlencoded
-
 pin_code=5184&response=allow&token=1378462608431&app_name=Sample+Web+App&app_url=http%3A%2F%2F192.168.1.199%3A3000%2Ftest%2Fbravia.html&return_url=http%3A%2F%2F192.168.1.199%3A3000%2Ftest%2Fbravia.html%3Fserver%3D192.168.1.199%26port%3D7999%26device_id%3D3%26x%3D1%26y%3D2%23zzz&auth_level=generic
-```
+```  
+  
 4. 电视机收到认证请求，判断PIN码是否正确，如果不正确，则再次回到第二步中的认证页面，并提示错误，如下图。  
 ![PIN码输入错误](../images/Redirect-error-case.png)  
 如果正确，则跳转到return_url页面。  

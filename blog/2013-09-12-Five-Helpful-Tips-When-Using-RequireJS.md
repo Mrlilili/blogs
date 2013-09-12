@@ -41,9 +41,9 @@ define(function(){
 });
 ```
 
-2. ####怎么配合非AMD库一起工作
+1. ####怎么配合非AMD库一起工作
 世界上有非常多的很好的Javascript库，大多数都没有遵循AMD规范，但是不用担心，你照样可以使用它们。从RequireJS 2.1.0版本开始，RequireJS有了一个叫做‘shim’的特性，让你设置你要用到的哪些不满足AMD规范的库，并且像其他AMD库一样加载进来。下面我们来看个非AMD库的例子。  
-**非AMD库没有其他依赖的情况**
+**加载没有依赖的非AMD库**  
 你获取还记得Backbone和Underscore取消AMD支持的情景，多亏了shim特性，我们依然可以容易地在RequireJS中使用这些库。
 ```js
 require.config({
@@ -189,17 +189,17 @@ define([
 ```
 我们将模板路径作为依赖加进来，用`text!`作为前缀，来告诉RequireJS使用一个叫做text的插件来处理。模板的文本内容作为`template`参数传递给模块。使用这个方法有如下好处：  
 
-1）开发过程中，模板作为一个单独的文件存在，因此我们使用IDE带给我们的便利（语法高亮等），还避免了我们必须穿过数百行甚至更多的HTML代码去编辑代码。  
+（1）开发过程中，模板作为一个单独的文件存在，因此我们使用IDE带给我们的便利（语法高亮等），还避免了我们必须穿过数百行甚至更多的HTML代码去编辑代码。  
 
-2）模板可以和其他模块同等对待，显示传递到模块中，让模块对模板的依赖更加显而易见。这和当模块执行时期望模板在DOM中正好相反。  
+（2）模板可以和其他模块同等对待，显示传递到模块中，让模块对模板的依赖更加显而易见。这和当模块执行时期望模板在DOM中正好相反。  
 
 当我们使用r.js构建和优化RequireJS应用时，模板可以和其他模板一起部署，因为文本插件可以有效地将模板包装在模块定义调用中，创建一个返回模板文件内容的模块。  
 
 以上就是对文本插件的惊鸿一瞥，下面是其他一些插件。
-[i18n](http://requirejs.org/docs/api.html#i18n) - 国际化
-[image](https://github.com/millermedeiros/requirejs-plugins) - 像加载其他模块一样加载图片
-[mdown](https://github.com/millermedeiros/requirejs-plugins/) - 加载markdown文件，它会给你编译成html
-[font](https://github.com/millermedeiros/requirejs-plugins) - 加载Web字体
+[i18n](http://requirejs.org/docs/api.html#i18n) - 国际化  
+[image](https://github.com/millermedeiros/requirejs-plugins) - 像加载其他模块一样加载图片  
+[mdown](https://github.com/millermedeiros/requirejs-plugins/) - 加载markdown文件，它会给你编译成html  
+[font](https://github.com/millermedeiros/requirejs-plugins) - 加载Web字体  
 
 1. ####故障检修小技巧  
 你可以在代码中使用以下API，我还发现在Chrome控制台中也非常有用。  
@@ -207,7 +207,7 @@ define([
 `require.specified(moduleId)` - 返回true如果该模块被其他模块依赖。该函数返回true并不意味着该模块可用。
 `requirejs.s.contexts._.config` - 我从[Vernon Kesner](https://twitter.com/vernonk)那里学来的这招。这是一个技术上的后门，文档中没有说明的方法，所以它可能在没有任何警告的情况下被修改或者去除。但是它返回一个非常有用的包含配置信息的对象。  
 以下是在Chrome控制台中它返回结果：  
-![Chrome控制台中它返回结果](http://tpstatic.com/img/usermedia/_TBvB2AB50KM-TASuLKFsw/w645.png)
+![Chrome控制台中它返回结果](http://tpstatic.com/img/usermedia/_TBvB2AB50KM-TASuLKFsw/w645.png)  
 以上就是我在Devlink用来演示[Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker)的一个[生成GIF示例应用](https://github.com/ifandelse/gif-stitch)中调用requirejs.s.contexts._.config返回的结果。你可以看到所有相关配置数据：根URL，路径，shim配置等。
 
 当进行Debug时其他两个关键是`errbacks`和`requirejs.onError`方法。  

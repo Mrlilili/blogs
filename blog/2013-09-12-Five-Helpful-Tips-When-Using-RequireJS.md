@@ -58,11 +58,8 @@ require.config({
 });
 ```
 上面的require.config调用中我们提供了压缩后的underscore.js文件路径，后面在shim对象中，添加了一个和同样的属性，并且值是一个对象，它有一个exports属性，用来告诉RequireJS全局对象（如果是浏览器的话当然就window对象了）上某个属性就是这个模块实际值。既然Underscore把自己声明为window上的_属性，那么我们就让exports的值为_。从此以后，如果有一个AMD模块依赖Underscore，RequireJS会用全局对象的_值代替。  
-
 这个例子很简单，因为Underscore没有任意依赖。那么如果加载一个有其他依赖的非AMD库吗？  
-
 **加载有依赖的非AMD库**  
-
 下面我们看看怎么加载依赖于Underscore和jQuery的Backbone吧。  
 ```js
 require.config({
@@ -83,9 +80,7 @@ require.config({
 })
 ```
 Backbone的shim配置除了exports属性外还有deps属性，deps是一个包含了Backbone所有依赖的库名字数组，他们必须先于Underscore加载，一旦这些依赖加载完成之后，Backbone也会被加载，然后RequireJS就会从全局对象上获取Backbone属性来作为backbone模块的值。  
-
 那么CommonJS又是怎样的呢？  
-
 假定你要RequireJS中使用一个CommonJS模块，没问题，你可以定义一个模块，并提供一个带有三个参数的工厂函数，这三个函数分别是：require，exports和module。多数情况下你都可以忽略其他两个参数，而只考虑如何使用require参数。通过require参数可以通过CommonJS的语法获取一个模块，比如：
 ```js
 define(function(require, exports, module){
@@ -189,13 +184,13 @@ define([
 ```
 我们将模板路径作为依赖加进来，用`text!`作为前缀，来告诉RequireJS使用一个叫做text的插件来处理。模板的文本内容作为`template`参数传递给模块。使用这个方法有如下好处：  
 
-（1）开发过程中，模板作为一个单独的文件存在，因此我们使用IDE带给我们的便利（语法高亮等），还避免了我们必须穿过数百行甚至更多的HTML代码去编辑代码。  
+（一）开发过程中，模板作为一个单独的文件存在，因此我们使用IDE带给我们的便利（语法高亮等），还避免了我们必须穿过数百行甚至更多的HTML代码去编辑代码。  
 
-（2）模板可以和其他模块同等对待，显示传递到模块中，让模块对模板的依赖更加显而易见。这和当模块执行时期望模板在DOM中正好相反。  
+（二）模板可以和其他模块同等对待，显示传递到模块中，让模块对模板的依赖更加显而易见。这和当模块执行时期望模板在DOM中正好相反。  
 
 当我们使用r.js构建和优化RequireJS应用时，模板可以和其他模板一起部署，因为文本插件可以有效地将模板包装在模块定义调用中，创建一个返回模板文件内容的模块。  
 
-以上就是对文本插件的惊鸿一瞥，下面是其他一些插件。
+以上就是对文本插件的惊鸿一瞥，下面是其他一些插件。  
 [i18n](http://requirejs.org/docs/api.html#i18n) - 国际化  
 [image](https://github.com/millermedeiros/requirejs-plugins) - 像加载其他模块一样加载图片  
 [mdown](https://github.com/millermedeiros/requirejs-plugins/) - 加载markdown文件，它会给你编译成html  

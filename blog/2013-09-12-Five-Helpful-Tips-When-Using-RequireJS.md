@@ -183,13 +183,9 @@ define([
 });
 ```
 我们将模板路径作为依赖加进来，用`text!`作为前缀，来告诉RequireJS使用一个叫做text的插件来处理。模板的文本内容作为`template`参数传递给模块。使用这个方法有如下好处：  
-
 （一）开发过程中，模板作为一个单独的文件存在，因此我们使用IDE带给我们的便利（语法高亮等），还避免了我们必须穿过数百行甚至更多的HTML代码去编辑代码。  
-
 （二）模板可以和其他模块同等对待，显示传递到模块中，让模块对模板的依赖更加显而易见。这和当模块执行时期望模板在DOM中正好相反。  
-
 当我们使用r.js构建和优化RequireJS应用时，模板可以和其他模板一起部署，因为文本插件可以有效地将模板包装在模块定义调用中，创建一个返回模板文件内容的模块。  
-
 以上就是对文本插件的惊鸿一瞥，下面是其他一些插件。  
 [i18n](http://requirejs.org/docs/api.html#i18n) - 国际化  
 [image](https://github.com/millermedeiros/requirejs-plugins) - 像加载其他模块一样加载图片  
@@ -204,7 +200,6 @@ define([
 以下是在Chrome控制台中它返回结果：  
 ![Chrome控制台中它返回结果](http://tpstatic.com/img/usermedia/_TBvB2AB50KM-TASuLKFsw/w645.png)  
 以上就是我在Devlink用来演示[Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Worker)的一个[生成GIF示例应用](https://github.com/ifandelse/gif-stitch)中调用requirejs.s.contexts._.config返回的结果。你可以看到所有相关配置数据：根URL，路径，shim配置等。
-
 当进行Debug时其他两个关键是`errbacks`和`requirejs.onError`方法。  
 `RequireJS ‘errbacks’`
 当你调用`require`时，可以传入第三个参数-发生错误时的回调，允许你对错误做出反应，而不是产生一个未捕获的异常。比如：  

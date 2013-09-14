@@ -7,7 +7,7 @@ RequireJS--Javascript的文件和模块加载器--是Web应用中组织，管理
 
 在这篇文章中，我们仅仅关注在RequireJS本身，而不包括r.js（RequireJS的优化工具）。我打算以后写一篇关于r.js的文章。  
 
-1. ####知道定义模块的几种方式
+#### 1. 知道定义模块的几种方式
 大多数使用RequireJS的人都知道以下这种定义模块的方法。  
 ```js
 define(['dependencyA', 'dependencyB'], function(depA, depB){
@@ -41,7 +41,7 @@ define(function(){
 });
 ```
 
-1. ####怎么配合非AMD库一起工作
+#### 2. 怎么配合非AMD库一起工作
 世界上有非常多的很好的Javascript库，大多数都没有遵循AMD规范，但是不用担心，你照样可以使用它们。从RequireJS 2.1.0版本开始，RequireJS有了一个叫做‘shim’的特性，让你设置你要用到的哪些不满足AMD规范的库，并且像其他AMD库一样加载进来。下面我们来看个非AMD库的例子。  
 **加载没有依赖的非AMD库**  
 你获取还记得Backbone和Underscore取消AMD支持的情景，多亏了shim特性，我们依然可以容易地在RequireJS中使用这些库。
@@ -116,7 +116,7 @@ module.exports = {
 }
 ```
 
-1. ####CND Fallbacks
+#### 3. CND Fallbacks
 虽然CDN（内容分发网络）可以提高站点的加载性能，但是不希望万一CDN挂掉时，你的站点也会挂掉。幸好RequireJS可以容易地设置后备地址。一般配置如下：
 ```js
 require.config({
@@ -138,7 +138,7 @@ require.config({
 ```
 我们给kendoui设置了一个地址数组，而不再是一个字符串，根据以上配置，RequireJS将会尝试从CDN上加载，如果失败了，再尝试从第二个地址加载。使用后备地址的确会使得脚本加载时间变长，但是总比站点不可用要好得多。  
 
-1. ####插件
+#### 4. 插件
  RequireJS中最好的一个增值点或许就是加载插件。加载插件可以用来加载各种非Javascript资源，就像其他依赖模块一样加载他们。最常见的是文本插件，它允许你加载一个普通文本文件（比如HTML或者CSS等），这对加载模板特别有用。为了让你理解它多么有用，让我们看看今天人们是怎么使用它的。  
 
  下面的代码片段展示了Backbone视图怎样获取unders.js模板内容，预编译，然后渲染页面，但是代码中你却看不到RequireJS/text插件的痕迹。  
@@ -192,7 +192,7 @@ define([
 [mdown](https://github.com/millermedeiros/requirejs-plugins/) - 加载markdown文件，它会给你编译成html  
 [font](https://github.com/millermedeiros/requirejs-plugins) - 加载Web字体  
 
-1. ####故障检修小技巧  
+#### 5. 故障检修小技巧  
 你可以在代码中使用以下API，我还发现在Chrome控制台中也非常有用。  
 `require.defined(moduleId)` - 返回true如果该模块已经被定义并且可用。
 `require.specified(moduleId)` - 返回true如果该模块被其他模块依赖。该函数返回true并不意味着该模块可用。

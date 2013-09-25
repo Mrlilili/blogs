@@ -24,10 +24,10 @@ function draw(){
 接下来，打开开发者工具并点击右下角的齿轮图标，在新打开配置页面中可以找到**实验（Experiments）**一栏，然后在该栏中启用**Canvas inspection（Canvas 审查）**。  
 ![Figure 2 - Enabling Canvas inspection in DevTools’ experiments](http://www.html5rocks.com/static/demos/canvas-inspection/images/experiments.png)  
 
-为了让这些修改生效，你必须关闭然后再打开开发者工具。当开发者工具再次打开时，找到Profiles一栏，你可以看到Canvas Profile选项，它是禁用状态，如果某个页面有你想要调试的Canvas，你可以按下Enable按钮然后页面会重新载入，准备捕捉Canvas调用。  
+为了让这些修改生效，你必须关闭然后再打开开发者工具。当开发者工具再次打开时，找到Profiles一栏，你可以看到Canvas Profile选项，它是禁用状态，如果某个页面有你想要调试的Canvas，你可以按下Enable按钮然后页面会重新载入，准备记录Canvas调用。  
 ![Figure 3 - Switching on the Canvas Profiler](http://www.html5rocks.com/static/demos/canvas-inspection/images/canvas-profiler.png)  
 
-然后你需要决定你是捕捉单帧（Single Frame），还是看起来很像开发者工具中时间轴的连续多帧（Consecutive Frames）。  
+然后你需要决定你是记录单帧（Single Frame），还是看起来很像开发者工具中时间轴的连续多帧（Consecutive Frames）。  
 
 ||一帧表示页面中的一次事件循环，涉及到执行Javascrit代码，事件处理，更新DOM，修改样式，布局和重绘。为了让动画更加平滑，你要让每帧耗时小于1/60秒，即16.6毫秒。
 
@@ -62,4 +62,4 @@ function draw(){
 ![](http://www.html5rocks.com/static/demos/canvas-inspection/images/diff.gif)  
 
 ####注意了！
-现在你已经知道了怎样在Chrome开发者工具中调试Canvas。如果你对这个工具有任何回馈，请[提交一个bug](http://crbug.com/new)或者写信给[Chrome开发者工具工作组](https://groups.google.com/forum/#!forum/google-chrome-developer-tools)，让我们知道你发现了bug或者在调试过程中你想看到哪些信息，因为只有开发者的使用和回馈才能让它更好。
+现在你已经知道了怎样在Chrome开发者工具中调试Canvas。如果你对这个工具有任何回馈，请[提交一个bug](http://crbug.com/new)或者写信给[Chrome开发者工具工作组](https://groups.google.com/forum/#!forum/google-chrome-developer-tools)，告诉我们，你发现了bug或者在调试过程中你想看到哪些信息，因为只有开发者的回馈才能让它更好。

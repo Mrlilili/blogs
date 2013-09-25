@@ -1,3 +1,4 @@
+1. [HTML5应用缓存与百度地图服务](2013-09-23-HTML5-Application-Cache-and-Baidu-Map-Service.md)
 1. [[翻译]使用Chrome开发者工具调试Canvas](./blog/2013-09-20-Canvas-Inspection-using-Chrome-DevTools.md)
 1. [透过用户的要求理解用户的关切](./blog/2013-09-16-Why-the-User-Need-this-Feature.md)
 1. [[翻译]RequireJS的五个有用的小技巧](./blog/2013-09-12-Five-Helpful-Tips-When-Using-RequireJS.md)

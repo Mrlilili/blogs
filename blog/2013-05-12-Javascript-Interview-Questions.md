@@ -45,13 +45,13 @@ JSONP并不使用XMLHttpRequest对象加载资源，而是通过script标签把�
 ```javascript
 // Using RegExp  
 function getQueryParam( key ){
-    var search = window.location.search;
-    if( !key || !search ) return;
-    key = key.replace(/\./g, '\\.');
-    var match = search.match(new RegExp('[?&]' + key + '=([^&]*)'));
-    if(match){
-      return decodeURIComponent(match[1]);
-    }
+  var search = window.location.search;
+  if( !key || !search ) return;
+  key = key.replace(/\./g, '\\.');
+  var match = search.match(new RegExp('[?&]' + key + '=([^&]*)'));
+  if(match){
+    return decodeURIComponent(match[1]);
+  }
 }
 ```
 ```javascript

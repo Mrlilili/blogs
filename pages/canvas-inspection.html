@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas Inspection</title>
+</head>
+<body>
+  <button onclick="start();">Start</button>
+  <canvas id="canvas" width="258" height="258"></canvas>
+  <script>
+    function start(){
+      var canvas = document.getElementById('canvas');
+      var context = canvas.getContext('2d');
+      context.clearRect(0, 0, 258, 258);
+      context.fillStyle = '#DDD';
+      context.beginPath();
+      context.arc(129, 129, 127, 0, 6.3, true);
+      context.closePath();
+      context.fill();
+      
+      context.fillStyle = '#999';
+      context.beginPath();
+      context.arc(129, 129, 100, 0, 6.3, true);
+      context.closePath();
+      context.fill();
+    }
+  </script>
+</body>
+</html>

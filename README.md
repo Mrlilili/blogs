@@ -1,3 +1,4 @@
+1. [网站使用条款的处理](./blog/2014-05-05-terms-of-use.md)
 1. [Backbone中的几个小问题](./blog/2014-05-04-backbone-problems.md)
 1. [npm install时连接超时的解决办法](./blog/2013-10-11-Connect-Timeout-When-Npm-Install.md)
 1. [HTML5应用缓存与百度地图服务](./blog/2013-09-23-HTML5-Application-Cache-and-Baidu-Map-Service.md)

@@ -1,3 +1,4 @@
+1. [如何计算首屏加载时间？](./blog/2014-05-07-first-screen.md)
 1. [IE6，7，8(Q)中同一元素重复定义的style属性会被合并](./blog/2014-05-06-IE678-muti-style-attribute.md)
 1. [网站使用条款的处理](./blog/2014-05-05-terms-of-use.md)
 1. [Backbone中的几个小问题](./blog/2014-05-04-backbone-problems.md)

@@ -39,7 +39,7 @@ xhr.send(null);
 （2）创建一个script标签访问某个资源，并加上参数?jsonp=jsonp_callback.  
 （3）服务器返回资源数据，格式为jsonp_callback(资源数据)。  
 （4）浏览器解析服务器返回数据，即调用jsonp_callback函数，参数为资源数据。  
-JSONP并不使用XMLHttpRequest对象加载资源，而是通过script标签把资源当做普通的javascript脚本来加载，所以不存在跨域问题，也不是真正的JavascriptAJAX。
+JSONP并不使用XMLHttpRequest对象加载资源，而是通过script标签把资源当做普通的javascript脚本来加载，所以不存在跨域问题，也不是真正的AJAX。
 
 1. ####你如何获取浏览器URL中查询字符串中的参数。
 ```javascript

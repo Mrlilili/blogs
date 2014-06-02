@@ -1,3 +1,4 @@
+1. [Javascript编码规范](./blog/2014-06-01-javascript-code-guide.md)
 1. [讨论一例交互--常用类目](./blog/2014-05-22-how-to-select-category.md)
 1. [如何计算首屏加载时间？](./blog/2014-05-07-first-screen.md)
 1. [IE6，7，8(Q)中同一元素重复定义的style属性会被合并](./blog/2014-05-06-IE678-muti-style-attribute.md)

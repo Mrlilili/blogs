@@ -9,7 +9,7 @@ Javascript编码规范
 ```js
 (function(){
   // 局部变量
-  var config = {}；
+  var config = {};
   // 全局变量
   window.global = {};
 })();

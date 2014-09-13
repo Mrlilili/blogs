@@ -177,3 +177,4 @@ define(function(require, exports, module){
 
 ##参考
 1. [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
+http://codeguide.bootcss.com/
